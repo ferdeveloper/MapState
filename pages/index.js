@@ -1,11 +1,10 @@
 import Layout from '../components/MyLayout';
+import MapContainer from '../components/MapContainer';
 
 const Index = () => (
   <div>
     <p>Map State</p>
-    <Layout>
-      <p>Hello Next.js</p>
-    </Layout>
+    <MapContainer />
   </div>
 );
 
