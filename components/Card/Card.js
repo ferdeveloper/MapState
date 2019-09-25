@@ -14,12 +14,13 @@ const Card = (props) => {
 
   return (
     <div
+      key={props.index}
       className={cardStyle.card}
       style={positionCardStyle}>
         <img
           className={cardStyle.icon}
           onClick={handleClick}
-          src="/static/icons/treasure.svg"
+          src="/static/icons/dot-circle.svg"
           alt="icon"
         />
     </div>

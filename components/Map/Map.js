@@ -36,21 +36,11 @@ const Map = (props) => {
 
 			console.log('marksList => ', marksList);
 		}
-		
-		// const handleAddMark = () => {
-		// 	setMarksList([
-		// 		...marksList,
-		// 		{
-		// 			xPosition: x,
-		// 			yPosition: y,
-		// 		}
-		// 	]);
-		// };
 
     function getMark(data, index) {
 			return (
 				<Card
-					key={index}
+					index={index}
 					xPosition={data.xPosition}
 					yPosition={data.yPosition}
 				/>

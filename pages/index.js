@@ -1,4 +1,3 @@
-import Layout from '../components/MyLayout';
 import MapContainer from '../components/MapContainer';
 
 const Index = () => (
