@@ -1,6 +1,7 @@
   
 import React, { useState } from 'react';
 import Card from '../Card/Card';
+import mapStyle from './Map.sass';
 
 const Map = (props) => {
     const {
@@ -23,44 +24,63 @@ const Map = (props) => {
     const [marksList, setMarksList] = useState([]);
 
     function handleAddMark() {
-        setMarksList([
-            ...marksList,
-            {
-              position: 100,
-            }
-          ]);
-    }
+			console.log('x => ', x);
+			console.log('y => ', y);
+			setMarksList([
+				...marksList,
+				{
+					xPosition: x,
+					yPosition: y,
+				}
+			]);
+
+			console.log('marksList => ', marksList);
+		}
+		
+		// const handleAddMark = () => {
+		// 	setMarksList([
+		// 		...marksList,
+		// 		{
+		// 			xPosition: x,
+		// 			yPosition: y,
+		// 		}
+		// 	]);
+		// };
 
     function getMark(data, index) {
-        return (
-            <Card
-                xPosition={x}
-                yPosition={y}
-            />
-        );
+			return (
+				<Card
+					key={index}
+					xPosition={data.xPosition}
+					yPosition={data.yPosition}
+				/>
+			);
     }
 
     function getMarksList() {
-        console.log('marksList ', marksList);
+        // console.log('marksList ', marksList);
         return marksList.map(getMark);
     }
 
     return (
-        <div className={props.className}>
+        <div
+            className={mapStyle.map}
+						>
             {getMarksList()}
             <img
-              onClick={handleAddMark}
+            	onClick={handleAddMark}
+              className={mapStyle.image}
               src="/static/zelda_map.jpg"
               alt="map"
             />
-            {/* {`x: ${x}`}<br />
+            {`x: ${x}`}<br />
             {`y: ${y}`}<br />
             {props.shouldShowIsActive && [`isActive: ${isActive}`, <br key="line-break"/>]}
             {`width: ${width}`}<br />
             {`height: ${height}`}<br />
             {`isPositionOutside: ${isPositionOutside ? 'true' : 'false'}`}<br />
             {`isMouseDetected: ${isMouseDetected ? 'true' : 'false'}`}<br />
-            {`isTouchDetected: ${isTouchDetected ? 'true' : 'false'}`} */}
+            {`isTouchDetected: ${isTouchDetected ? 'true' : 'false'}`}
         </div>
     );
 };
