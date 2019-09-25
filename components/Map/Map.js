@@ -1,6 +1,6 @@
   
-import React from 'react';
-import Card from './Card/Card';
+import React, { useState } from 'react';
+import Card from '../Card/Card';
 
 const Map = (props) => {
     const {
@@ -20,26 +20,47 @@ const Map = (props) => {
         isPositionOutside = false
     } = props;
 
-    function handleClick() {
-      alert(x);
+    const [marksList, setMarksList] = useState([]);
+
+    function handleAddMark() {
+        setMarksList([
+            ...marksList,
+            {
+              position: 100,
+            }
+          ]);
+    }
+
+    function getMark(data, index) {
+        return (
+            <Card
+                xPosition={x}
+                yPosition={y}
+            />
+        );
+    }
+
+    function getMarksList() {
+        console.log('marksList ', marksList);
+        return marksList.map(getMark);
     }
 
     return (
         <div className={props.className}>
-            <Card />
+            {getMarksList()}
             <img
-              onClick={handleClick}
+              onClick={handleAddMark}
               src="/static/zelda_map.jpg"
               alt="map"
             />
-            {`x: ${x}`}<br />
+            {/* {`x: ${x}`}<br />
             {`y: ${y}`}<br />
             {props.shouldShowIsActive && [`isActive: ${isActive}`, <br key="line-break"/>]}
             {`width: ${width}`}<br />
             {`height: ${height}`}<br />
             {`isPositionOutside: ${isPositionOutside ? 'true' : 'false'}`}<br />
             {`isMouseDetected: ${isMouseDetected ? 'true' : 'false'}`}<br />
-            {`isTouchDetected: ${isTouchDetected ? 'true' : 'false'}`}
+            {`isTouchDetected: ${isTouchDetected ? 'true' : 'false'}`} */}
         </div>
     );
 };
