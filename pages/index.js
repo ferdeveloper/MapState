@@ -4,7 +4,7 @@ const Index = () => (
   <div>
     <p>Map State</p>
     <MapContainer />
-  </div>
+  </div> 
 );
 
 export default Index;

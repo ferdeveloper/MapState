@@ -2,14 +2,20 @@
 import React from 'react';
 import cardStyle from './Card.sass';
 
+const POSITION_INDEX = 15;
+
 const Card = (props) => {
   function handleClick() {
     return null;
   }
 
+  function getPosition(position) {
+    return position - POSITION_INDEX;
+  }
+
   const positionCardStyle = {
-    top: props.yPosition,
-    left: props.xPosition,
+    top: getPosition(props.yPosition),
+    left: getPosition(props.xPosition),
   }
 
   return (
