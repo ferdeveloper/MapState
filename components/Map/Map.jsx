@@ -24,8 +24,6 @@ const Map = (props) => {
     const [marksList, setMarksList] = useState([]);
 
     function handleAddMark() {
-			console.log('x => ', x);
-			console.log('y => ', y);
 			setMarksList([
 				...marksList,
 				{
@@ -42,7 +40,8 @@ const Map = (props) => {
 				<Card
 					index={index}
 					xPosition={data.xPosition}
-					yPosition={data.yPosition}
+                    yPosition={data.yPosition}
+                    showInfo
 				/>
 			);
     }

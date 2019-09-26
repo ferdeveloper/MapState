@@ -1,12 +1,15 @@
   
-import React from 'react';
+import React, { useState } from 'react';
+import Info from '../Info/Info';
 import cardStyle from './Card.sass';
 
 const POSITION_INDEX = 15;
 
 const Card = (props) => {
+  const [showInfo, setShowInfo] = useState(true);
+
   function handleClick() {
-    return null;
+    setShowInfo(!showInfo);
   }
 
   function getPosition(position) {
@@ -22,7 +25,12 @@ const Card = (props) => {
     <div
       key={props.index}
       className={cardStyle.card}
-      style={positionCardStyle}>
+      style={positionCardStyle}
+      onClick={handleClick}
+    >
+        <Info 
+          showInfo={showInfo}
+        />
         <img
           className={cardStyle.icon}
           onClick={handleClick}
