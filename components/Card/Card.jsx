@@ -26,10 +26,10 @@ const Card = (props) => {
       key={props.index}
       className={cardStyle.card}
       style={positionCardStyle}
-      onClick={handleClick}
     >
         <Info 
           showInfo={showInfo}
+          isEditing
         />
         <img
           className={cardStyle.icon}

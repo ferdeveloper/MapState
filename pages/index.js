@@ -1,4 +1,5 @@
 import MapContainer from '../components/MapContainer';
+import '../styles/normalize.scss';
 
 const Index = () => (
   <div>
